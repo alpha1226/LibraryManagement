@@ -12,9 +12,21 @@ namespace LibraryManagementSystem
 {
     public partial class MainForm : Form
     {
+        private string value;
+        public string Passvalue
+        {
+            get { return this.value; }
+            set { this.value = value; }
+        }
+            
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            userlabel.Text = Passvalue;
         }
     }
 }

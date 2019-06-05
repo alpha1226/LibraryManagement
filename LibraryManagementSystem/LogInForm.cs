@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace LibraryManagementSystem
 {
     public partial class LogInForm : Form
     {
+        MySqlConnection LoginConn =
+            new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함
         public LogInForm()
         {
             InitializeComponent();
@@ -31,8 +34,44 @@ namespace LibraryManagementSystem
                 MessageBox.Show("admin Login");
                 this.Visible = false;
                 MainForm form = new MainForm();
-                //form.Passvalue = textBox1.Text;
+                form.Passvalue = textBox1.Text;
                 form.ShowDialog();
+            }
+            else
+            {
+                string Query = "update membertbl set UserLoginDate='" + DateTime.Now.ToString() + "' where UserID='" + textBox1.Text + "'&&UserPW='" + textBox2.Text + "';";
+
+                MessageBox.Show(Query);//쿼리 확인
+
+                LoginConn.Open();
+                MySqlCommand command = new MySqlCommand(Query, LoginConn);
+
+
+                try//예외 처리
+                {
+                    // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("로그인 완료");
+                        this.Visible = false;
+                        MainForm form = new MainForm();
+                        form.Passvalue = textBox1.Text;
+                        form.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("로그인 실패");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                if (LoginConn.State == ConnectionState.Open)
+                {
+                    LoginConn.Close();
+                }
             }
         }
 

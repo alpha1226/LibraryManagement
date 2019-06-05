@@ -63,6 +63,15 @@
             button6.Text = "비밀번호 확인";
             button6.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            button4.Location = new System.Drawing.Point(525, 74);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(67, 23);
+            button4.TabIndex = 46;
+            button4.Text = "중복 확인";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -80,6 +89,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "회원가입";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -98,6 +108,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "뒤로";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // label2
             // 
@@ -229,15 +240,6 @@
             this.Address_textBox.Name = "Address_textBox";
             this.Address_textBox.Size = new System.Drawing.Size(195, 54);
             this.Address_textBox.TabIndex = 22;
-            // 
-            // button4
-            // 
-            button4.Location = new System.Drawing.Point(525, 74);
-            button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(67, 23);
-            button4.TabIndex = 46;
-            button4.Text = "중복 확인";
-            button4.UseVisualStyleBackColor = true;
             // 
             // SignUp
             // 
