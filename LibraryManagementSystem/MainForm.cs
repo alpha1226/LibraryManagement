@@ -16,17 +16,5 @@ namespace LibraryManagementSystem
         {
             InitializeComponent();
         }
-
-        private string MainForm_value;
-        public string Passvalue
-        {
-            get { return this.MainForm_value; }
-            set { this.MainForm_value = value; }
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            userlabel.Text = Passvalue;
-        }
     }
 }

@@ -31,7 +31,7 @@ namespace LibraryManagementSystem
                 MessageBox.Show("admin Login");
                 this.Visible = false;
                 MainForm form = new MainForm();
-                form.Passvalue = textBox1.Text;
+                //form.Passvalue = textBox1.Text;
                 form.ShowDialog();
             }
         }
