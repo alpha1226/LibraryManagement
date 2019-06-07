@@ -484,6 +484,7 @@
             this.buttonSearch.TabIndex = 105;
             this.buttonSearch.Text = "검색";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // textBox1
             // 
@@ -572,7 +573,7 @@
             this.Controls.Add(this.userlabel);
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "               ";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

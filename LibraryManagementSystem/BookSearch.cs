@@ -17,9 +17,24 @@ namespace LibraryManagementSystem
             InitializeComponent();
         }
 
+        private string bookname;
+        public string PassBookname
+        {
+            get { return this.bookname; }
+            set { this.bookname = value; }
+        }
+
+        private string UserID;
+        public string PassUserID
+        {
+            get { return this.UserID; }
+            set { this.UserID = value; }
+        }
+
+
         private void BookSearch_Load(object sender, EventArgs e)
         {
-
+            textBox1.Text = bookname;
         }
     }
 }

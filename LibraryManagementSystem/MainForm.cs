@@ -22,8 +22,8 @@ namespace LibraryManagementSystem
             get { return this.value; }
             set { this.value = value; }
         }
+
         
-            
         public MainForm()
         {
             InitializeComponent();
@@ -260,6 +260,14 @@ namespace LibraryManagementSystem
                 UserInfo ui = new UserInfo();
                 ui.Visible = true;
             }
+        }
+
+        private void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            BookSearch bs = new BookSearch();
+            bs.PassBookname = textBox1.Text;
+            bs.PassUserID = userlabel.Text;
+            bs.Visible = true;
         }
     }
 }
