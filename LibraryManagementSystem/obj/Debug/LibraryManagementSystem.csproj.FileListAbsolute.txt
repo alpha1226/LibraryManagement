@@ -68,3 +68,5 @@ C:\Users\rndud\source\LibraryManagement\LibraryManagementSystem\bin\Debug\Google
 C:\Users\rndud\source\LibraryManagement\LibraryManagementSystem\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\rndud\source\LibraryManagement\LibraryManagementSystem\bin\Debug\MySql.Data.xml
 C:\Users\rndud\source\LibraryManagement\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.csproj.CopyComplete
+C:\Users\rndud\source\LibraryManagement\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.SeatChoice.resources
+C:\Users\rndud\source\LibraryManagement\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.StopUseSeat.resources
