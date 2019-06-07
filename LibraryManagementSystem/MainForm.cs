@@ -247,5 +247,19 @@ namespace LibraryManagementSystem
             LogInForm lif = new LogInForm();
             lif.Visible = true;
         }
+
+        private void Button37_Click(object sender, EventArgs e)
+        {
+            if (userlabel.Text.Equals("admin"))
+            {
+                AddBook ab = new AddBook();
+                ab.Visible = true;
+            }
+            else
+            {
+                UserInfo ui = new UserInfo();
+                ui.Visible = true;
+            }
+        }
     }
 }

@@ -81,6 +81,7 @@
             this.button37.TabIndex = 142;
             this.button37.Text = "내 정보 / 책 등록";
             this.button37.UseVisualStyleBackColor = true;
+            this.button37.Click += new System.EventHandler(this.Button37_Click);
             // 
             // UsingSeatLabel
             // 

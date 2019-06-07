@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button button6;
-            this.button3 = new System.Windows.Forms.Button();
             this.Address_textBox = new System.Windows.Forms.TextBox();
             this.job_textBox = new System.Windows.Forms.TextBox();
             this.Phone_textBox = new System.Windows.Forms.TextBox();
@@ -56,14 +55,14 @@
             button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button3
+            // button6
             // 
-            this.button3.Location = new System.Drawing.Point(12, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "뒤로";
-            this.button3.UseVisualStyleBackColor = true;
+            button6.Location = new System.Drawing.Point(393, 130);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(67, 65);
+            button6.TabIndex = 36;
+            button6.Text = "비밀번호 확인";
+            button6.UseVisualStyleBackColor = true;
             // 
             // Address_textBox
             // 
@@ -105,15 +104,6 @@
             this.Name_textBox.Size = new System.Drawing.Size(195, 21);
             this.Name_textBox.TabIndex = 37;
             this.Name_textBox.Text = "Name";
-            // 
-            // button6
-            // 
-            button6.Location = new System.Drawing.Point(393, 130);
-            button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(67, 65);
-            button6.TabIndex = 36;
-            button6.Text = "비밀번호 확인";
-            button6.UseVisualStyleBackColor = true;
             // 
             // PWCK_textBox
             // 
@@ -305,7 +295,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
             this.Name = "UserInfo";
             this.Text = "UserInfo";
             this.ResumeLayout(false);
@@ -314,8 +303,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox Address_textBox;
         private System.Windows.Forms.TextBox job_textBox;
         private System.Windows.Forms.TextBox Phone_textBox;
