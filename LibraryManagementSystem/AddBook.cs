@@ -282,9 +282,33 @@ namespace LibraryManagementSystem
 
         private void BookPlusBtn_Click(object sender, EventArgs e)
         {
-            if (!BookGroup1.Text.Equals("") && !BookName1.Text.Equals("") && !BookWriter1.Text.Equals("") && !BookPub1.Text.Equals("") && !BookPrice1.Text.Equals("") && int.Parse(BookPrice1.Text) >= 0 && int.Parse(BookNum1.Text) >= 1)
+            
+             MessageBox.Show("책 추가");
+            
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked==true && !BookGroup1.Text.Equals("") && !BookName1.Text.Equals("") && !BookWriter1.Text.Equals("") && !BookPub1.Text.Equals("") && !BookPrice1.Text.Equals("") && (int.Parse(BookPrice1.Text) >= 0&&!BookPrice1.Text.Equals("")) && (int.Parse(BookNum1.Text) >= 1&&!BookNum1.Text.Equals("")))
             {
-                MessageBox.Show("책 추가");
+                BookGroup1.Enabled = false;
+                BookName1.Enabled = false;
+                BookWriter1.Enabled = false;
+                BookPub1.Enabled = false;
+                BookPrice1.Enabled = false;
+                BookNum1.Enabled = false;
+            } else if (!checkBox1.Checked)
+            {
+                BookGroup1.Enabled = true;
+                BookName1.Enabled = true;
+                BookWriter1.Enabled = true;
+                BookPub1.Enabled = true;
+                BookPrice1.Enabled = true;
+                BookNum1.Enabled = true;
+            } else
+            {
+                checkBox1.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
             }
         }
     }

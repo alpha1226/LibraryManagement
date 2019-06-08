@@ -117,7 +117,7 @@
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.button11 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -795,6 +795,7 @@
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 209;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -886,22 +887,21 @@
             this.checkBox10.UseVisualStyleBackColor = true;
             this.checkBox10.Visible = false;
             // 
-            // button11
+            // label7
             // 
-            this.button11.Location = new System.Drawing.Point(12, 65);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(42, 23);
-            this.button11.TabIndex = 219;
-            this.button11.Text = "삭제";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.Button11_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 70);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 219;
+            this.label7.Text = "입력완료";
             // 
             // AddBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.checkBox10);
             this.Controls.Add(this.checkBox9);
             this.Controls.Add(this.checkBox8);
@@ -1089,6 +1089,6 @@
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label7;
     }
 }
