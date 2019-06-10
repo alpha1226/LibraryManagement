@@ -1,0 +1,42 @@
+CREATE DATABASE lms;
+use lms;
+
+CREATE TABLE `lms`.`booktbl` (
+  `BookIndex` INT(11) NOT NULL AUTO_INCREMENT,
+  `BookGroup` VARCHAR(45) NOT NULL,
+  `BookName` VARCHAR(45) NOT NULL,
+  `BookWriter` VARCHAR(45) NOT NULL,
+  `BookPub` VARCHAR(45) NOT NULL,
+  `BookPrice` INT(11) NOT NULL,
+  `BookNum` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`BookIndex`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `lms`.`membertbl` (
+  `UserID` VARCHAR(45) NOT NULL,
+  `USerPW` VARCHAR(45) NOT NULL,
+  `UserName` VARCHAR(45) NOT NULL,
+  `UserBirthday` VARCHAR(45) NOT NULL,
+  `UserPhoneNumber` VARCHAR(45) NOT NULL,
+  `UserSubject` VARCHAR(45) NOT NULL,
+  `UserAddress` VARCHAR(45) NOT NULL,
+  `UserLoginDate` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`UserID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `lms`.`seattbl` (
+  `seatIndex` INT(11) NOT NULL,
+  `seatNumber` INT(11) NOT NULL,
+  `UserID` VARCHAR(45) NOT NULL,
+  `startTime` VARCHAR(45) NOT NULL,
+  `endTime` VARCHAR(45) NULL,
+  PRIMARY KEY (`seatIndex`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+

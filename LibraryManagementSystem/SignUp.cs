@@ -31,7 +31,7 @@ namespace LibraryManagementSystem
             String logintime = System.DateTime.Now.ToString("yyyy년MM월dd일hh시mm분ss초");
             MessageBox.Show(logintime);
             //칼럼에 추가하는 커리문 insertQuery
-            string insertQuery = "INSERT INTO membertbl(UserID,UserPW,UserName,UserBitrhday,UserPhoneNumber,UserSubject,UserAddress,UserLoginDate) VALUES('"
+            string insertQuery = "INSERT INTO membertbl(UserID,UserPW,UserName,UserBirthday,UserPhoneNumber,UserSubject,UserAddress,UserLoginDate) VALUES('"
                 + ID_textBox.Text + "' ,'" + PW_textBox.Text + "','" + Name_textBox.Text + "','" + Birth_textBox.Text + "','" + Phone_textBox.Text + "','" + job_textBox.Text + "','" + Address_textBox.Text + "','" + logintime +"')";
 
             MessageBox.Show(insertQuery);//쿼리 확인
