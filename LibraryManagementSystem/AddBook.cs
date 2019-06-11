@@ -95,7 +95,7 @@ namespace LibraryManagementSystem
             MessageBox.Show(bookinsertQuery+"/"+num+"번 실행");//쿼리 확인
 
             connection.Open();
-            for (int i = 1; i < num; i++)
+            for (int i = 0; i < num; i++)
             {
                 MySqlCommand command = new MySqlCommand(bookinsertQuery, connection);
 
