@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button35 = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button4 = new System.Windows.Forms.Button();
@@ -37,14 +37,15 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // button35
+            // backButton
             // 
-            this.button35.Location = new System.Drawing.Point(12, 12);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(75, 23);
-            this.button35.TabIndex = 40;
-            this.button35.Text = "뒤로";
-            this.button35.UseVisualStyleBackColor = true;
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 23);
+            this.backButton.TabIndex = 40;
+            this.backButton.Text = "뒤로";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // textBox1
             // 
@@ -67,6 +68,7 @@
             this.button4.TabIndex = 61;
             this.button4.Text = "검색";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // label16
             // 
@@ -97,7 +99,7 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button35);
+            this.Controls.Add(this.backButton);
             this.Name = "BookSearch";
             this.Text = "ㅉ";
             this.Load += new System.EventHandler(this.BookSearch_Load);
@@ -107,7 +109,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button35;
+        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button button4;

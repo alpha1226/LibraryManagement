@@ -13,10 +13,17 @@ namespace LibraryManagementSystem
 {
     public partial class BookSearch : Form
     {
-        MySqlConnection SUSconnection =
+        public string user;
+        MySqlConnection BSconnection =
            new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함
         public BookSearch()
         {
+            InitializeComponent();
+        }
+
+        public BookSearch(string user)
+        {
+            this.user = user;
             InitializeComponent();
         }
 
@@ -68,11 +75,11 @@ namespace LibraryManagementSystem
             BookPrice int(11)
             BookNum varchar(45) 
             BookUserID varcha*/
-            String deachul;
+            string deachul;
             MySqlCommand selectCommand = new MySqlCommand();
-            selectCommand.Connection = SUSconnection;
+            selectCommand.Connection = BSconnection;
             DataSet ds = new DataSet();
-            MySqlDataAdapter da = new MySqlDataAdapter("select * from booktbl", SUSconnection);
+            MySqlDataAdapter da = new MySqlDataAdapter("select * from booktbl", BSconnection);
             da.Fill(ds);
 
             foreach (DataRow row in ds.Tables[0].Rows)
@@ -85,7 +92,7 @@ namespace LibraryManagementSystem
                 ListViewItem newitem = new ListViewItem(aa);
                 listView1.Items.Add(newitem);
             }
-            SUSconnection.Close();
+            BSconnection.Close();
 
 
         }
@@ -96,19 +103,60 @@ namespace LibraryManagementSystem
             {
                 ListView.SelectedListViewItemCollection items = listView1.SelectedItems;
                 ListViewItem ivItem = items[0];
-                string bookIndex = ivItem.SubItems[0].Text;
+                string bookIndexnum = ivItem.SubItems[0].Text;
                 string bookGroup = ivItem.SubItems[1].Text;
                 string bookName = ivItem.SubItems[2].Text;
                 string bookWriter = ivItem.SubItems[3].Text;
                 string bookPub = ivItem.SubItems[4].Text;
-                string bookPrice = ivItem.SubItems[5].Text;
-                
-                MessageBox.Show(bookIndex);
+                string deachul = ivItem.SubItems[5].Text;
+                //string deachul;
+                //if (ivItem.SubItems[6].Text.Equals(null)){ deachul = "불가능"; } else { deachul = "가능"; }
+                //MessageBox.Show(ivItem.SubItems[5].Text);
 
-                BookInfo bi = new BookInfo();
-                //bi.label7.Text = 
+                //MessageBox.Show(bookIndex);
+
+                Console.WriteLine(user);
+
+                BookInfo bi = new BookInfo(user);
+                bi.bookIndex = int.Parse(bookIndexnum);
+                bi.label7.Text = bookGroup;
+                bi.label8.Text = bookName;
+                bi.label9.Text = bookWriter;
+                bi.label10.Text = bookPub;
+                bi.label11.Text = deachul;
+                //bi.label11.Text = bookPrice;
+                //if (deachul.Equals("")) bi.label12.Text = "불가능"; else bi.label12.Text = "가능";
                 bi.Visible = true;
             }
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            string searchvalue = "%"+textBox1.Text.ToString()+"%";
+            string deachul;
+            MySqlCommand selectCommand = new MySqlCommand();
+            selectCommand.Connection = BSconnection;
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter("select * from booktbl where bookName LIKE '"+searchvalue+"';", BSconnection);
+            da.Fill(ds);
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Console.WriteLine(string.Format("BookIndex : {0}, BookGroup : {1}, BookName : {2}, BookWriter : {3}, BookPub : {4}, BookPrice : {5}, BookNum : {6}, BookUserID : {7}",
+                    row["Bookindex"], row["BookGroup"], row["BookName"], row["BookWriter"], row["BookPub"], row["BookPrice"], row["BookNum"], row["BookUserID"]));
+
+                if (row["BookUserID"].ToString().Equals("")) { deachul = "가능"; } else { deachul = "불가능"; }
+                String[] aa = { row["Bookindex"].ToString(), row["BookGroup"].ToString(), row["BookName"].ToString(), row["BookWriter"].ToString(), row["BookPub"].ToString(), deachul };
+                ListViewItem newitem = new ListViewItem(aa);
+                listView1.Items.Add(newitem);
+            }
+            BSconnection.Close();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
         }
     }
 }
