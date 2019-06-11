@@ -30,25 +30,13 @@ namespace LibraryManagementSystem
         }
         //int enableArr = new int();
         string startTime = "";
-        string seatNumber="";
+        string seatIndex="";
         private void MainForm_Load(object sender, EventArgs e)
         {
             userlabel.Text = Passvalue;
 
-            MySqlCommand selectCommand = new MySqlCommand();
-            selectCommand.Connection = sqlconn;
-            selectCommand.CommandText = "SELECT * FROM seattbl";
-            DataSet ds = new DataSet();
-            MySqlDataAdapter da = new MySqlDataAdapter("SELECT * FROM seattbl WHERE UserID='"+userlabel.Text+"' and endTime IS NULL", sqlconn);
-            da.Fill(ds);
-
-            foreach (DataRow row in ds.Tables[0].Rows)
-            {
-                Console.WriteLine(string.Format("Index : {0}, SeatNum : {1}, Id : {2}, start : {3}, end : {4}", row["seatIndex"], row["seatNumber"], row["userID"], row["startTime"], row["endTime"]));
-                UsingSeatLabel.Text = row["seatNumber"].ToString();
-                startTime = row["startTime"].ToString();
-                seatNumber = row["seatIndex"].ToString();
-            }
+            
+            //public Label l = ;
 
         }
 
@@ -219,7 +207,7 @@ namespace LibraryManagementSystem
 
             if (UsingSeatLabel.Text.Equals("없음") == true)
             {
-                SeatChoice sh = new SeatChoice();
+                SeatChoice sh = new SeatChoice(this);
                 sh.Passvalue = userlabel.Text;
                 sh.UseSeatValue = seatNum.ToString();
                 MessageBox.Show(seatNum + "번 자리 사용");
@@ -227,11 +215,11 @@ namespace LibraryManagementSystem
             }
             else if (UsingSeatLabel.Text.Equals(seatNum.ToString()))
             {
-                StopUseSeat sus = new StopUseSeat();
+                StopUseSeat sus = new StopUseSeat(this);
                 sus.PassName = userlabel.Text;
                 sus.PassSeatNumber = seatNum.ToString();
                 sus.PassStartTime = startTime;
-                sus.PassSeatIndex = seatNumber;
+                sus.PassSeatIndex = seatIndex;
                 MessageBox.Show(seatNum + "번 자리 사용 종료");
                 sus.Visible = true;
             }

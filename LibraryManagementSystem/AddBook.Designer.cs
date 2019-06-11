@@ -318,7 +318,7 @@
             // 
             // BookNum1
             // 
-            this.BookNum1.Location = new System.Drawing.Point(671, 92);
+            this.BookNum1.Location = new System.Drawing.Point(674, 94);
             this.BookNum1.Name = "BookNum1";
             this.BookNum1.Size = new System.Drawing.Size(66, 21);
             this.BookNum1.TabIndex = 152;
@@ -335,7 +335,7 @@
             // 
             // BookNum2
             // 
-            this.BookNum2.Location = new System.Drawing.Point(671, 119);
+            this.BookNum2.Location = new System.Drawing.Point(674, 121);
             this.BookNum2.Name = "BookNum2";
             this.BookNum2.Size = new System.Drawing.Size(66, 21);
             this.BookNum2.TabIndex = 158;
@@ -383,7 +383,7 @@
             // 
             // BookNum3
             // 
-            this.BookNum3.Location = new System.Drawing.Point(671, 146);
+            this.BookNum3.Location = new System.Drawing.Point(674, 148);
             this.BookNum3.Name = "BookNum3";
             this.BookNum3.Size = new System.Drawing.Size(66, 21);
             this.BookNum3.TabIndex = 164;
@@ -431,7 +431,7 @@
             // 
             // BookNum4
             // 
-            this.BookNum4.Location = new System.Drawing.Point(671, 173);
+            this.BookNum4.Location = new System.Drawing.Point(674, 175);
             this.BookNum4.Name = "BookNum4";
             this.BookNum4.Size = new System.Drawing.Size(66, 21);
             this.BookNum4.TabIndex = 170;
@@ -479,7 +479,7 @@
             // 
             // BookNum7
             // 
-            this.BookNum7.Location = new System.Drawing.Point(671, 253);
+            this.BookNum7.Location = new System.Drawing.Point(674, 255);
             this.BookNum7.Name = "BookNum7";
             this.BookNum7.Size = new System.Drawing.Size(66, 21);
             this.BookNum7.TabIndex = 188;
@@ -527,7 +527,7 @@
             // 
             // BookNum6
             // 
-            this.BookNum6.Location = new System.Drawing.Point(671, 226);
+            this.BookNum6.Location = new System.Drawing.Point(674, 228);
             this.BookNum6.Name = "BookNum6";
             this.BookNum6.Size = new System.Drawing.Size(66, 21);
             this.BookNum6.TabIndex = 182;
@@ -575,7 +575,7 @@
             // 
             // BookNum5
             // 
-            this.BookNum5.Location = new System.Drawing.Point(671, 199);
+            this.BookNum5.Location = new System.Drawing.Point(674, 201);
             this.BookNum5.Name = "BookNum5";
             this.BookNum5.Size = new System.Drawing.Size(66, 21);
             this.BookNum5.TabIndex = 176;
@@ -623,7 +623,7 @@
             // 
             // BookNum8
             // 
-            this.BookNum8.Location = new System.Drawing.Point(671, 282);
+            this.BookNum8.Location = new System.Drawing.Point(674, 284);
             this.BookNum8.Name = "BookNum8";
             this.BookNum8.Size = new System.Drawing.Size(66, 21);
             this.BookNum8.TabIndex = 194;
@@ -671,7 +671,7 @@
             // 
             // BookNum9
             // 
-            this.BookNum9.Location = new System.Drawing.Point(671, 309);
+            this.BookNum9.Location = new System.Drawing.Point(674, 311);
             this.BookNum9.Name = "BookNum9";
             this.BookNum9.Size = new System.Drawing.Size(66, 21);
             this.BookNum9.TabIndex = 201;
@@ -730,7 +730,7 @@
             // 
             // BookNum10
             // 
-            this.BookNum10.Location = new System.Drawing.Point(671, 336);
+            this.BookNum10.Location = new System.Drawing.Point(674, 338);
             this.BookNum10.Name = "BookNum10";
             this.BookNum10.Size = new System.Drawing.Size(66, 21);
             this.BookNum10.TabIndex = 208;

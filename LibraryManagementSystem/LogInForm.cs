@@ -24,7 +24,6 @@ namespace LibraryManagementSystem
         {
 
         }
-
         
 
         private void Button1_Click(object sender, EventArgs e)
@@ -33,9 +32,9 @@ namespace LibraryManagementSystem
             {
                 MessageBox.Show("admin Login");
                 this.Visible = false;
-                MainForm form = new MainForm();
-                form.Passvalue = textBox1.Text;
-                form.ShowDialog();
+                MainForm mainform = new MainForm();
+                mainform.Passvalue = textBox1.Text;
+                mainform.ShowDialog();
             }
             else
             {
@@ -57,6 +56,8 @@ namespace LibraryManagementSystem
                         MainForm form = new MainForm();
                         form.Passvalue = textBox1.Text;
                         form.ShowDialog();
+                        SeatChoice scform = new SeatChoice();
+                        scform.Visible = false;
                     }
                     else
                     {
@@ -79,6 +80,10 @@ namespace LibraryManagementSystem
         {
             SignUp signForm = new SignUp();
             signForm.ShowDialog();
+        }
+
+        private void LogInForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }

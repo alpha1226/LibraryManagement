@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace LibraryManagementSystem
 {
     public partial class AddBook : Form
     {
+        MySqlConnection connection =
+            new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함
         public AddBook()
         {
             InitializeComponent();
@@ -25,7 +28,7 @@ namespace LibraryManagementSystem
 
         private void AddBook_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -37,6 +40,87 @@ namespace LibraryManagementSystem
             BookPrice1.Text = "";
             BookNum1.Text = "";
         }
+
+        private void BookPlusBtn_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("책 추가");
+            if (checkBox1.Checked == true)
+            {
+                plusBook(BookGroup1.Text.ToString(),BookName1.Text.ToString(),BookWriter1.Text.ToString(),BookPub1.Text.ToString(),int.Parse(BookPrice1.Text.ToString()),int.Parse(BookNum1.Text.ToString()));
+            }
+            if (checkBox2.Checked == true)
+            {
+                plusBook(BookGroup2.Text.ToString(), BookName2.Text.ToString(), BookWriter2.Text.ToString(), BookPub2.Text.ToString(), int.Parse(BookPrice2.Text.ToString()), int.Parse(BookNum2.Text.ToString()));
+            }
+            if (checkBox3.Checked == true)
+            {
+                plusBook(BookGroup3.Text.ToString(), BookName3.Text.ToString(), BookWriter3.Text.ToString(), BookPub3.Text.ToString(), int.Parse(BookPrice3.Text.ToString()), int.Parse(BookNum3.Text.ToString()));
+            }
+            if (checkBox4.Checked == true)
+            {
+                plusBook(BookGroup4.Text.ToString(), BookName4.Text.ToString(), BookWriter4.Text.ToString(), BookPub4.Text.ToString(), int.Parse(BookPrice4.Text.ToString()), int.Parse(BookNum4.Text.ToString()));
+            }
+            if (checkBox5.Checked == true)
+            {
+                plusBook(BookGroup5.Text.ToString(), BookName5.Text.ToString(), BookWriter5.Text.ToString(), BookPub5.Text.ToString(), int.Parse(BookPrice5.Text.ToString()), int.Parse(BookNum5.Text.ToString()));
+            }
+            if (checkBox6.Checked == true)
+            {
+                plusBook(BookGroup6.Text.ToString(), BookName6.Text.ToString(), BookWriter6.Text.ToString(), BookPub6.Text.ToString(), int.Parse(BookPrice6.Text.ToString()), int.Parse(BookNum6.Text.ToString()));
+            }
+            if (checkBox7.Checked == true)
+            {
+                plusBook(BookGroup7.Text.ToString(), BookName7.Text.ToString(), BookWriter7.Text.ToString(), BookPub7.Text.ToString(), int.Parse(BookPrice7.Text.ToString()), int.Parse(BookNum7.Text.ToString()));
+            }
+            if (checkBox8.Checked == true)
+            {
+                plusBook(BookGroup8.Text.ToString(), BookName8.Text.ToString(), BookWriter8.Text.ToString(), BookPub8.Text.ToString(), int.Parse(BookPrice8.Text.ToString()), int.Parse(BookNum8.Text.ToString()));
+            }
+            if (checkBox9.Checked == true)
+            {
+                plusBook(BookGroup9.Text.ToString(), BookName9.Text.ToString(), BookWriter9.Text.ToString(), BookPub9.Text.ToString(), int.Parse(BookPrice9.Text.ToString()), int.Parse(BookNum9.Text.ToString()));
+            }
+            if (checkBox10.Checked == true)
+            {
+                plusBook(BookGroup10.Text.ToString(), BookName10.Text.ToString(), BookWriter10.Text.ToString(), BookPub10.Text.ToString(), int.Parse(BookPrice10.Text.ToString()), int.Parse(BookNum10.Text.ToString()));
+            }
+
+        }
+
+        public void plusBook(string group,string bookname,string writer,string pub,int price,int num)
+        {
+            string bookinsertQuery = "insert into booktbl(BookGroup,BookName,BookWriter,BookPub,BookPrice) values ('"+group+"', '"+bookname+"', '"+writer+"', '"+pub+"', "+price+");";
+
+            MessageBox.Show(bookinsertQuery+"/"+num+"번 실행");//쿼리 확인
+
+            connection.Open();
+            for (int i = 1; i < num; i++)
+            {
+                MySqlCommand command = new MySqlCommand(bookinsertQuery, connection);
+
+                try//예외 처리
+                {
+                    // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("정상적으로 갔다");
+                    }
+                    else
+                    {
+                        MessageBox.Show("비정상 이당");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+
+            connection.Close();
+        }
+        
 
         private void Button2_Click(object sender, EventArgs e)
         {
@@ -280,13 +364,7 @@ namespace LibraryManagementSystem
 
         }
 
-        private void BookPlusBtn_Click(object sender, EventArgs e)
-        {
-            
-             MessageBox.Show("책 추가");
-            
-        }
-
+        
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked==true && !BookGroup1.Text.Equals("") && !BookName1.Text.Equals("") && !BookWriter1.Text.Equals("") && !BookPub1.Text.Equals("") && !BookPrice1.Text.Equals("") && (int.Parse(BookPrice1.Text) >= 0&&!BookPrice1.Text.Equals("")) && (int.Parse(BookNum1.Text) >= 1&&!BookNum1.Text.Equals("")))

@@ -13,11 +13,18 @@ namespace LibraryManagementSystem
 {
     public partial class SeatChoice : Form
     {
+        MainForm mf;
         MySqlConnection sqlconn =
                     new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함 
         public SeatChoice()
         {
             InitializeComponent();
+        }
+
+        public SeatChoice(MainForm mf)
+        {
+            InitializeComponent();
+            this.mf = mf;
         }
         private string value;
         public string Passvalue
@@ -49,6 +56,7 @@ namespace LibraryManagementSystem
                 if (command.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("정상적으로 갔다");
+                    mf.UsingSeatLabel.Text = UseSeatValue;
                 }
                 else
                 {

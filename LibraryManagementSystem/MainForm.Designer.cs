@@ -583,7 +583,6 @@
         #endregion
 
         private System.Windows.Forms.Button button37;
-        private System.Windows.Forms.Label UsingSeatLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button34;
         private System.Windows.Forms.Button button33;
@@ -624,5 +623,6 @@
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Label userlabel;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label UsingSeatLabel;
     }
 }
