@@ -14,6 +14,7 @@ namespace LibraryManagementSystem
     public partial class BookSearch : Form
     {
         public string user;
+        string searchvalue;
         MySqlConnection BSconnection =
            new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함
         public BookSearch()
@@ -21,8 +22,9 @@ namespace LibraryManagementSystem
             InitializeComponent();
         }
 
-        public BookSearch(string user)
+        public BookSearch(string user,string searchvalue)
         {
+            this.searchvalue = searchvalue;
             this.user = user;
             InitializeComponent();
         }
@@ -44,8 +46,7 @@ namespace LibraryManagementSystem
 
         private void BookSearch_Load(object sender, EventArgs e)
         {
-            textBox1.Text = bookname;
-
+            textBox1.Text = searchvalue;
 
             listView1.View = View.Details;
             listView1.GridLines = true;
@@ -58,41 +59,14 @@ namespace LibraryManagementSystem
             listView1.Columns.Add("저자", 150, HorizontalAlignment.Center);
             listView1.Columns.Add("출판사", 150, HorizontalAlignment.Center);
             listView1.Columns.Add("대출 가능 여부", 100, HorizontalAlignment.Center);
-            /* // String[] aa = {"aa1", "aa2"}; 와 같이 일부 항목만 입력해도 ListView 에 표시되지만, 
-             * // 나중에 item.SubItems[index].Text 로 나중에 접근시 ArgumentOutOfRangeException 발생한다. // 모두 입력하는게 좋다. */
-            /*String[] aa = {"test관리", "test분류", "test제목", "test저자","test출판사","test대출" };   //add test
-            ListViewItem newitem = new ListViewItem(aa);
-            listView1.Items.Add(newitem);
-            ListViewItem new2item = new ListViewItem(aa);
-            listView1.Items.Add(new2item);
-            ListViewItem new3item = new ListViewItem(aa);
-            listView1.Items.Add(new3item);*/
 
-            /*            BookGroup varchar(45) 
-            BookName varchar(45) 
-            BookWriter varchar(45) 
-            BookPub varchar(45) 
-            BookPrice int(11)
-            BookNum varchar(45) 
-            BookUserID varcha*/
-            string deachul;
-            MySqlCommand selectCommand = new MySqlCommand();
-            selectCommand.Connection = BSconnection;
-            DataSet ds = new DataSet();
-            MySqlDataAdapter da = new MySqlDataAdapter("select * from booktbl", BSconnection);
-            da.Fill(ds);
-
-            foreach (DataRow row in ds.Tables[0].Rows)
+            if (textBox1.Text.Equals(""))
             {
-                Console.WriteLine(string.Format("BookIndex : {0}, BookGroup : {1}, BookName : {2}, BookWriter : {3}, BookPub : {4}, BookPrice : {5}, BookNum : {6}, BookUserID : {7}", 
-                    row["Bookindex"],row["BookGroup"],row["BookName"],row["BookWriter"], row["BookPub"], row["BookPrice"], row["BookNum"], row["BookUserID"]));
-                
-                if (row["BookUserID"].ToString().Equals("")) { deachul = "가능"; } else { deachul="불가능"; }
-                String[] aa = { row["Bookindex"].ToString(), row["BookGroup"].ToString(), row["BookName"].ToString(), row["BookWriter"].ToString(), row["BookPub"].ToString(), deachul };
-                ListViewItem newitem = new ListViewItem(aa);
-                listView1.Items.Add(newitem);
+                researchbook();
+            } else if (!textBox1.Text.Equals(""))
+            {
+                researchbook(textBox1.Text.ToString());
             }
-            BSconnection.Close();
 
 
         }
@@ -117,7 +91,7 @@ namespace LibraryManagementSystem
 
                 Console.WriteLine(user);
 
-                BookInfo bi = new BookInfo(user);
+                BookInfo bi = new BookInfo(user,this);
                 bi.bookIndex = int.Parse(bookIndexnum);
                 bi.label7.Text = bookGroup;
                 bi.label8.Text = bookName;
@@ -147,6 +121,8 @@ namespace LibraryManagementSystem
                     row["Bookindex"], row["BookGroup"], row["BookName"], row["BookWriter"], row["BookPub"], row["BookPrice"], row["BookNum"], row["BookUserID"]));
 
                 if (row["BookUserID"].ToString().Equals("")) { deachul = "가능"; } else { deachul = "불가능"; }
+                if (row["BookUserID"].ToString().Equals(user)) { deachul = "반납가능"; }
+
                 String[] aa = { row["Bookindex"].ToString(), row["BookGroup"].ToString(), row["BookName"].ToString(), row["BookWriter"].ToString(), row["BookPub"].ToString(), deachul };
                 ListViewItem newitem = new ListViewItem(aa);
                 listView1.Items.Add(newitem);
@@ -157,6 +133,54 @@ namespace LibraryManagementSystem
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+        }
+
+        public void researchbook()
+        {
+            string deachul;
+            MySqlCommand selectCommand = new MySqlCommand();
+            selectCommand.Connection = BSconnection;
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter("select * from booktbl", BSconnection);
+            da.Fill(ds);
+            listView1.Items.Clear();
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Console.WriteLine(string.Format("BookIndex : {0}, BookGroup : {1}, BookName : {2}, BookWriter : {3}, BookPub : {4}, BookPrice : {5}, BookNum : {6}, BookUserID : {7}",
+                    row["Bookindex"], row["BookGroup"], row["BookName"], row["BookWriter"], row["BookPub"], row["BookPrice"], row["BookNum"], row["BookUserID"]));
+
+                if (row["BookUserID"].ToString().Equals("")) { deachul = "가능"; } else { deachul = "불가능"; }
+                if (row["BookUserID"].ToString().Equals(user)) { deachul = "반납가능"; }
+
+                String[] aa = { row["Bookindex"].ToString(), row["BookGroup"].ToString(), row["BookName"].ToString(), row["BookWriter"].ToString(), row["BookPub"].ToString(), deachul };
+                ListViewItem newitem = new ListViewItem(aa);
+                listView1.Items.Add(newitem);
+            }
+            BSconnection.Close();
+        }
+
+        public void researchbook(String str) {
+            string deachul;
+            MySqlCommand selectCommand = new MySqlCommand();
+            selectCommand.Connection = BSconnection;
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter("select * from booktbl where BookName like '%"+str+"' OR BookName like '%"+ str + "%' OR BookName like '"+ str + "%';", BSconnection);
+            da.Fill(ds);
+            listView1.Items.Clear();
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Console.WriteLine(string.Format("BookIndex : {0}, BookGroup : {1}, BookName : {2}, BookWriter : {3}, BookPub : {4}, BookPrice : {5}, BookNum : {6}, BookUserID : {7}",
+                    row["Bookindex"], row["BookGroup"], row["BookName"], row["BookWriter"], row["BookPub"], row["BookPrice"], row["BookNum"], row["BookUserID"]));
+
+                if (row["BookUserID"].ToString().Equals("")) { deachul = "가능"; } else { deachul = "불가능"; }
+                if (row["BookUserID"].ToString().Equals(user)) { deachul = "반납가능"; }
+                String[] aa = { row["Bookindex"].ToString(), row["BookGroup"].ToString(), row["BookName"].ToString(), row["BookWriter"].ToString(), row["BookPub"].ToString(), deachul };
+                ListViewItem newitem = new ListViewItem(aa);
+                listView1.Items.Add(newitem);
+            }
+            BSconnection.Close();
         }
     }
 }

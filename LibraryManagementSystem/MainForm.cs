@@ -34,10 +34,26 @@ namespace LibraryManagementSystem
         private void MainForm_Load(object sender, EventArgs e)
         {
             userlabel.Text = Passvalue;
-
+            for (int i = 1; i <= 32; i++)
+            {
+                seatNumcheckerToFalse(i);
+            }
+            seatUpdater();
+            MainFormSeatLoad();
             
+
+
             //public Label l = ;
 
+        }
+
+        public void MainFormSeatLoad()
+        {
+            for (int i = 1; i <= 32; i++)
+            {
+                seatNumcheckerToFalse(i);
+            }
+            seatUpdater();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -245,17 +261,287 @@ namespace LibraryManagementSystem
             }
             else
             {
-                UserInfo ui = new UserInfo();
+                UserInfo ui = new UserInfo(userlabel.Text.ToString());
                 ui.Visible = true;
             }
         }
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            BookSearch bs = new BookSearch(userlabel.Text.ToString());
+            BookSearch bs = new BookSearch(userlabel.Text.ToString(), textBox1.Text.ToString()) ;
             bs.PassBookname = textBox1.Text;
             bs.PassUserID = userlabel.Text;
             bs.Visible = true;
+        }
+
+        public void seatUpdater()
+        {
+            MySqlCommand selectCommand = new MySqlCommand();
+            selectCommand.Connection = sqlconn;
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter("select * from seattbl", sqlconn);
+            da.Fill(ds);
+            //string[] num;
+            int seatindex=0;
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Console.WriteLine(string.Format("seatIndex : {0}, UserID : {1}", row["seatIndex"], row["UserID"]));
+                if (userlabel.Text.Equals(row["UserID"]))
+                {
+                    seatindex = int.Parse(row["seatIndex"].ToString());
+
+                }
+                Console.WriteLine(seatindex);
+                if (seatindex != 0)
+                {
+                    UsingSeatLabel.Text = seatindex.ToString();
+                }
+            }
+
+            if (!UsingSeatLabel.Text.Equals("없음"))
+            {
+                MySqlCommand inselectCommand = new MySqlCommand();
+                inselectCommand.Connection = sqlconn;
+                DataSet inds = new DataSet();
+                MySqlDataAdapter inda = new MySqlDataAdapter("select * from seattbl where UserID='"+userlabel.Text.ToString()+"'", sqlconn);
+                inda.Fill(inds);
+                int usingseatindex;
+
+                foreach (DataRow inrow in inds.Tables[0].Rows)
+                {
+                    Console.WriteLine(string.Format("사용중 seatIndex : {0}", inrow["seatIndex"]));
+                    usingseatindex = int.Parse(inrow["seatIndex"].ToString());
+                    
+                    Console.WriteLine("useingseatindex : "+usingseatindex);
+                    seatNumCheckerToTrue(usingseatindex);
+                }
+
+            } else if (UsingSeatLabel.Text.Equals("없음"))
+            {
+                MySqlCommand inselectCommand = new MySqlCommand();
+                inselectCommand.Connection = sqlconn;
+                DataSet inds = new DataSet();
+                MySqlDataAdapter inda = new MySqlDataAdapter("select * from seattbl where UserID IS NULL", sqlconn);
+                inda.Fill(inds);
+                int nullseatindex;
+                foreach (DataRow inrow in inds.Tables[0].Rows)
+                {
+                    Console.WriteLine(string.Format("사용중 seatIndex : {0}", inrow["seatIndex"]));
+                    nullseatindex = int.Parse(inrow["seatIndex"].ToString());
+
+                    Console.WriteLine("useingseatindex : " + nullseatindex);
+                    seatNumCheckerToTrue(nullseatindex);
+                }
+            }
+
+
+            sqlconn.Close();
+        }
+
+        public void seatNumcheckerToFalse(int seatindex)
+        {
+            switch (seatindex)
+            {
+                case 1:
+                    button1.Enabled = false;
+                    break;
+                case 2:
+                    button2.Enabled = false;
+                    break;
+                case 3:
+                    button3.Enabled = false;
+                    break;
+                case 4:
+                    button4.Enabled = false;
+                    break;
+                case 5:
+                    button5.Enabled = false;
+                    break;
+                case 6:
+                    button6.Enabled = false;
+                    break;
+                case 7:
+                    button7.Enabled = false;
+                    break;
+                case 8:
+                    button8.Enabled = false;
+                    break;
+                case 9:
+                    button9.Enabled = false;
+                    break;
+                case 10:
+                    button10.Enabled = false;
+                    break;
+                case 11:
+                    button11.Enabled = false;
+                    break;
+                case 12:
+                    button12.Enabled = false;
+                    break;
+                case 13:
+                    button13.Enabled = false;
+                    break;
+                case 14:
+                    button14.Enabled = false;
+                    break;
+                case 15:
+                    button15.Enabled = false;
+                    break;
+                case 16:
+                    button16.Enabled = false;
+                    break;
+                case 17:
+                    button17.Enabled = false;
+                    break;
+                case 18:
+                    button18.Enabled = false;
+                    break;
+                case 19:
+                    button19.Enabled = false;
+                    break;
+                case 20:
+                    button20.Enabled = false;
+                    break;
+                case 21:
+                    button21.Enabled = false;
+                    break;
+                case 22:
+                    button22.Enabled = false;
+                    break;
+                case 23:
+                    button23.Enabled = false;
+                    break;
+                case 24:
+                    button24.Enabled = false;
+                    break;
+                case 25:
+                    button25.Enabled = false;
+                    break;
+                case 26:
+                    button26.Enabled = false;
+                    break;
+                case 27:
+                    button27.Enabled = false;
+                    break;
+                case 28:
+                    button28.Enabled = false;
+                    break;
+                case 29:
+                    button29.Enabled = false;
+                    break;
+                case 30:
+                    button30.Enabled = false;
+                    break;
+                case 31:
+                    button31.Enabled = false;
+                    break;
+                case 32:
+                    button32.Enabled = false;
+                    break;
+            }
+        }
+
+        public void seatNumCheckerToTrue(int seatindex)
+        {
+            switch (seatindex)
+            {
+                case 1:
+                    button1.Enabled = true;
+                    break;
+                case 2:
+                    button2.Enabled = true;
+                    break;
+                case 3:
+                    button3.Enabled = true;
+                    break;
+                case 4:
+                    button4.Enabled = true;
+                    break;
+                case 5:
+                    button5.Enabled = true;
+                    break;
+                case 6:
+                    button6.Enabled = true;
+                    break;
+                case 7:
+                    button7.Enabled = true;
+                    break;
+                case 8:
+                    button8.Enabled = true;
+                    break;
+                case 9:
+                    button9.Enabled = true;
+                    break;
+                case 10:
+                    button10.Enabled = true;
+                    break;
+                case 11:
+                    button11.Enabled = true;
+                    break;
+                case 12:
+                    button12.Enabled = true;
+                    break;
+                case 13:
+                    button13.Enabled = true;
+                    break;
+                case 14:
+                    button14.Enabled = true;
+                    break;
+                case 15:
+                    button15.Enabled = true;
+                    break;
+                case 16:
+                    button16.Enabled = true;
+                    break;
+                case 17:
+                    button17.Enabled = true;
+                    break;
+                case 18:
+                    button18.Enabled = true;
+                    break;
+                case 19:
+                    button19.Enabled = true;
+                    break;
+                case 20:
+                    button20.Enabled = true;
+                    break;
+                case 21:
+                    button21.Enabled = true;
+                    break;
+                case 22:
+                    button22.Enabled = true;
+                    break;
+                case 23:
+                    button23.Enabled = true;
+                    break;
+                case 24:
+                    button24.Enabled = true;
+                    break;
+                case 25:
+                    button25.Enabled = true;
+                    break;
+                case 26:
+                    button26.Enabled = true;
+                    break;
+                case 27:
+                    button27.Enabled = true;
+                    break;
+                case 28:
+                    button28.Enabled = true;
+                    break;
+                case 29:
+                    button29.Enabled = true;
+                    break;
+                case 30:
+                    button30.Enabled = true;
+                    break;
+                case 31:
+                    button31.Enabled = true;
+                    break;
+                case 32:
+                    button32.Enabled = true;
+                    break;
+            }
         }
     }
 }

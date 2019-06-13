@@ -297,6 +297,7 @@
             this.Controls.Add(this.button1);
             this.Name = "UserInfo";
             this.Text = "UserInfo";
+            this.Load += new System.EventHandler(this.UserInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

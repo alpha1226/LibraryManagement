@@ -42,7 +42,7 @@ namespace LibraryManagementSystem
         private void Button1_Click(object sender, EventArgs e)
         {
             //칼럼에 추가하는 커리문 insertQuery
-            string insertQuery = "INSERT INTO seattbl(seatNumber,UserID,startTime)" +
+            string insertQuery = "INSERT INTO seathistorytbl(seatNumber,UserID,startTime)" +
                     "VALUES(" + UseSeatValue + ",'" + NameLabel.Text.ToString() + "','" + TimeLabel.Text.ToString() + "')";
 
             MessageBox.Show(insertQuery);//쿼리 확인
@@ -67,6 +67,31 @@ namespace LibraryManagementSystem
             {
                 MessageBox.Show(ex.Message);
             }
+
+            string updateQuery = "UPDATE seattbl SET UserID='"+NameLabel.Text.ToString()+"' WHERE seatIndex="+UseSeatValue+";";
+
+            MessageBox.Show(updateQuery);//쿼리 확인
+            MySqlCommand updatecommand = new MySqlCommand(updateQuery, sqlconn);
+
+            try//예외 처리
+            {
+                // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
+                if (updatecommand.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("정상적으로 갔다");
+                    mf.UsingSeatLabel.Text = UseSeatValue;
+                    mf.MainFormSeatLoad();
+                }
+                else
+                {
+                    MessageBox.Show("비정상");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
             sqlconn.Close();
             this.Visible = false;

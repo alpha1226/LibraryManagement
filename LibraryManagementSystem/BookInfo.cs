@@ -15,15 +15,16 @@ namespace LibraryManagementSystem
     {
 
         //MainForm mf;
-        //BookSearch bs;
+        BookSearch bs;
         string user;
         public int bookIndex;
         public BookInfo()
         {
             InitializeComponent();
         }
-        public BookInfo(string user)
+        public BookInfo(string user, BookSearch bs)
         {
+            this.bs = bs;
             this.user = user;
             InitializeComponent();
         }
@@ -119,6 +120,7 @@ namespace LibraryManagementSystem
                     if (insertcommand.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("history 저장 완료");
+                        bs.researchbook();
                     }
                     else
                     {
@@ -173,6 +175,7 @@ namespace LibraryManagementSystem
                     if (insertcommand.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("history enddate 저장 완료");
+                        bs.researchbook();
                     }
                     else
                     {
