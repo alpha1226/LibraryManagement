@@ -133,6 +133,7 @@
             // 
             // label7
             // 
+            this.label7.ForeColor = System.Drawing.Color.Silver;
             this.label7.Location = new System.Drawing.Point(68, 175);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 12);
@@ -142,6 +143,7 @@
             // 
             // label8
             // 
+            this.label8.ForeColor = System.Drawing.Color.Silver;
             this.label8.Location = new System.Drawing.Point(68, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 12);
@@ -151,6 +153,7 @@
             // 
             // label9
             // 
+            this.label9.ForeColor = System.Drawing.Color.Silver;
             this.label9.Location = new System.Drawing.Point(68, 91);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 12);
@@ -160,6 +163,7 @@
             // 
             // label6
             // 
+            this.label6.ForeColor = System.Drawing.Color.Silver;
             this.label6.Location = new System.Drawing.Point(68, 390);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 12);
@@ -169,6 +173,7 @@
             // 
             // label5
             // 
+            this.label5.ForeColor = System.Drawing.Color.Silver;
             this.label5.Location = new System.Drawing.Point(68, 344);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 12);
@@ -178,6 +183,7 @@
             // 
             // label4
             // 
+            this.label4.ForeColor = System.Drawing.Color.Silver;
             this.label4.Location = new System.Drawing.Point(68, 297);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 12);
@@ -187,6 +193,7 @@
             // 
             // label3
             // 
+            this.label3.ForeColor = System.Drawing.Color.Silver;
             this.label3.Location = new System.Drawing.Point(68, 255);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 12);
@@ -196,6 +203,7 @@
             // 
             // label2
             // 
+            this.label2.ForeColor = System.Drawing.Color.Silver;
             this.label2.Location = new System.Drawing.Point(68, 215);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 12);
@@ -223,6 +231,7 @@
             // 
             // label1
             // 
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(369, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 12);
@@ -232,6 +241,7 @@
             // 
             // label10
             // 
+            this.label10.ForeColor = System.Drawing.Color.Silver;
             this.label10.Location = new System.Drawing.Point(590, 88);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 15);
@@ -259,6 +269,7 @@
             // 
             // label11
             // 
+            this.label11.ForeColor = System.Drawing.Color.Silver;
             this.label11.Location = new System.Drawing.Point(590, 241);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(108, 15);
@@ -270,6 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(800, 534);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.label11);

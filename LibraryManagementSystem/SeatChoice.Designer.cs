@@ -41,6 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(126, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 12);
@@ -70,6 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Silver;
             this.label2.Location = new System.Drawing.Point(37, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 12);
@@ -79,6 +81,7 @@
             // TimeLabel
             // 
             this.TimeLabel.AutoSize = true;
+            this.TimeLabel.ForeColor = System.Drawing.Color.Silver;
             this.TimeLabel.Location = new System.Drawing.Point(163, 133);
             this.TimeLabel.Name = "TimeLabel";
             this.TimeLabel.Size = new System.Drawing.Size(65, 12);
@@ -88,6 +91,7 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
+            this.NameLabel.ForeColor = System.Drawing.Color.Silver;
             this.NameLabel.Location = new System.Drawing.Point(163, 103);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(70, 12);
@@ -97,6 +101,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Silver;
             this.label5.Location = new System.Drawing.Point(93, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 12);
@@ -106,6 +111,7 @@
             // seatNumlabel
             // 
             this.seatNumlabel.AutoSize = true;
+            this.seatNumlabel.ForeColor = System.Drawing.Color.Silver;
             this.seatNumlabel.Location = new System.Drawing.Point(103, 50);
             this.seatNumlabel.Name = "seatNumlabel";
             this.seatNumlabel.Size = new System.Drawing.Size(17, 12);
@@ -116,6 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(345, 245);
             this.Controls.Add(this.seatNumlabel);
             this.Controls.Add(this.NameLabel);

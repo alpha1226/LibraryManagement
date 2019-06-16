@@ -70,6 +70,9 @@
             this.buttonLogout = new System.Windows.Forms.Button();
             this.userlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button37
@@ -86,6 +89,7 @@
             // UsingSeatLabel
             // 
             this.UsingSeatLabel.AutoSize = true;
+            this.UsingSeatLabel.ForeColor = System.Drawing.Color.Silver;
             this.UsingSeatLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.UsingSeatLabel.Location = new System.Drawing.Point(530, 69);
             this.UsingSeatLabel.Name = "UsingSeatLabel";
@@ -96,6 +100,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Silver;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(431, 69);
             this.label3.Name = "label3";
@@ -477,13 +482,15 @@
             // 
             // buttonSearch
             // 
+            this.buttonSearch.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonSearch.ForeColor = System.Drawing.Color.Black;
             this.buttonSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.buttonSearch.Location = new System.Drawing.Point(300, 60);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 21);
             this.buttonSearch.TabIndex = 105;
             this.buttonSearch.Text = "검색";
-            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // textBox1
@@ -508,6 +515,7 @@
             // userlabel
             // 
             this.userlabel.AutoSize = true;
+            this.userlabel.ForeColor = System.Drawing.Color.Silver;
             this.userlabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.userlabel.Location = new System.Drawing.Point(530, 50);
             this.userlabel.Name = "userlabel";
@@ -518,6 +526,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(471, 50);
             this.label1.Name = "label1";
@@ -525,11 +534,33 @@
             this.label1.TabIndex = 101;
             this.label1.Text = "사용자 : ";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tmon몬소리 Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.label2.Location = new System.Drawing.Point(14, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 26);
+            this.label2.TabIndex = 143;
+            this.label2.Text = "LMS";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(-1, -2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(89, 41);
+            this.panel1.TabIndex = 144;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(800, 534);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button37);
             this.Controls.Add(this.UsingSeatLabel);
             this.Controls.Add(this.label3);
@@ -575,6 +606,8 @@
             this.Name = "MainForm";
             this.Text = "               ";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -624,5 +657,7 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label UsingSeatLabel;
         public System.Windows.Forms.Label userlabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

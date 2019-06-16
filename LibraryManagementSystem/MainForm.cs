@@ -40,7 +40,6 @@ namespace LibraryManagementSystem
             }
             seatUpdater();
             MainFormSeatLoad();
-            
 
 
             //public Label l = ;
@@ -338,105 +337,139 @@ namespace LibraryManagementSystem
             sqlconn.Close();
         }
 
+
+
         public void seatNumcheckerToFalse(int seatindex)
         {
             switch (seatindex)
             {
                 case 1:
                     button1.Enabled = false;
+                    button1.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 2:
                     button2.Enabled = false;
+                    button2.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 3:
                     button3.Enabled = false;
+                    button3.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 4:
                     button4.Enabled = false;
+                    button4.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 5:
                     button5.Enabled = false;
+                    button5.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 6:
                     button6.Enabled = false;
+                    button6.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 7:
                     button7.Enabled = false;
+                    button7.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 8:
                     button8.Enabled = false;
+                    button8.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 9:
                     button9.Enabled = false;
+                    button9.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 10:
                     button10.Enabled = false;
+                    button10.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 11:
                     button11.Enabled = false;
+                    button11.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 12:
                     button12.Enabled = false;
+                    button12.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 13:
                     button13.Enabled = false;
+                    button13.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 14:
                     button14.Enabled = false;
+                    button14.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 15:
                     button15.Enabled = false;
+                    button15.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 16:
                     button16.Enabled = false;
+                    button16.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 17:
                     button17.Enabled = false;
+                    button17.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 18:
                     button18.Enabled = false;
+                    button18.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 19:
                     button19.Enabled = false;
+                    button19.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 20:
                     button20.Enabled = false;
+                    button20.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 21:
                     button21.Enabled = false;
+                    button21.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 22:
                     button22.Enabled = false;
+                    button22.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 23:
                     button23.Enabled = false;
+                    button23.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 24:
                     button24.Enabled = false;
+                    button24.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 25:
                     button25.Enabled = false;
+                    button25.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 26:
                     button26.Enabled = false;
+                    button26.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 27:
                     button27.Enabled = false;
+                    button27.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 28:
                     button28.Enabled = false;
+                    button28.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 29:
                     button29.Enabled = false;
+                    button29.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 30:
                     button30.Enabled = false;
+                    button30.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 31:
                     button31.Enabled = false;
+                    button31.BackColor = Color.FromArgb(159, 159, 159);
                     break;
                 case 32:
                     button32.Enabled = false;
+                    button32.BackColor = Color.FromArgb(159, 159, 159);
                     break;
             }
         }
@@ -447,99 +480,131 @@ namespace LibraryManagementSystem
             {
                 case 1:
                     button1.Enabled = true;
+                    button1.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 2:
                     button2.Enabled = true;
+                    button2.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 3:
                     button3.Enabled = true;
+                    button3.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 4:
                     button4.Enabled = true;
+                    button4.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 5:
                     button5.Enabled = true;
+                    button5.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 6:
                     button6.Enabled = true;
+                    button6.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 7:
                     button7.Enabled = true;
+                    button7.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 8:
                     button8.Enabled = true;
+                    button8.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 9:
                     button9.Enabled = true;
+                    button9.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 10:
                     button10.Enabled = true;
+                    button10.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 11:
                     button11.Enabled = true;
+                    button11.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 12:
                     button12.Enabled = true;
+                    button12.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 13:
                     button13.Enabled = true;
+                    button13.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 14:
                     button14.Enabled = true;
+                    button14.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 15:
                     button15.Enabled = true;
+                    button15.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 16:
                     button16.Enabled = true;
+                    button16.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 17:
                     button17.Enabled = true;
+                    button17.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 18:
                     button18.Enabled = true;
+                    button18.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 19:
                     button19.Enabled = true;
+                    button19.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 20:
                     button20.Enabled = true;
+                    button20.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 21:
                     button21.Enabled = true;
+                    button21.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 22:
                     button22.Enabled = true;
+                    button22.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 23:
                     button23.Enabled = true;
+                    button23.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 24:
                     button24.Enabled = true;
+                    button24.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 25:
                     button25.Enabled = true;
+                    button25.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 26:
                     button26.Enabled = true;
+                    button26.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 27:
                     button27.Enabled = true;
+                    button27.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 28:
                     button28.Enabled = true;
+                    button28.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 29:
                     button29.Enabled = true;
+                    button29.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 30:
                     button30.Enabled = true;
+                    button30.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 31:
                     button31.Enabled = true;
+                    button31.BackColor = Color.FromArgb(225, 225, 225);
                     break;
                 case 32:
                     button32.Enabled = true;
+                    button32.BackColor = Color.FromArgb(225, 225, 225);
                     break;
             }
         }

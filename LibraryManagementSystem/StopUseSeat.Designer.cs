@@ -43,6 +43,7 @@
             // seatNumlabel
             // 
             this.seatNumlabel.AutoSize = true;
+            this.seatNumlabel.ForeColor = System.Drawing.Color.Silver;
             this.seatNumlabel.Location = new System.Drawing.Point(92, 32);
             this.seatNumlabel.Name = "seatNumlabel";
             this.seatNumlabel.Size = new System.Drawing.Size(17, 12);
@@ -52,6 +53,7 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
+            this.NameLabel.ForeColor = System.Drawing.Color.Silver;
             this.NameLabel.Location = new System.Drawing.Point(176, 91);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(70, 12);
@@ -61,6 +63,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Silver;
             this.label5.Location = new System.Drawing.Point(106, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 12);
@@ -70,6 +73,7 @@
             // TimeLabel
             // 
             this.TimeLabel.AutoSize = true;
+            this.TimeLabel.ForeColor = System.Drawing.Color.Silver;
             this.TimeLabel.Location = new System.Drawing.Point(176, 121);
             this.TimeLabel.Name = "TimeLabel";
             this.TimeLabel.Size = new System.Drawing.Size(65, 12);
@@ -79,6 +83,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Silver;
             this.label2.Location = new System.Drawing.Point(50, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 12);
@@ -108,6 +113,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(115, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 12);
@@ -117,6 +123,7 @@
             // endTimeLabel
             // 
             this.endTimeLabel.AutoSize = true;
+            this.endTimeLabel.ForeColor = System.Drawing.Color.Silver;
             this.endTimeLabel.Location = new System.Drawing.Point(176, 151);
             this.endTimeLabel.Name = "endTimeLabel";
             this.endTimeLabel.Size = new System.Drawing.Size(86, 12);
@@ -126,6 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Silver;
             this.label4.Location = new System.Drawing.Point(50, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 12);
@@ -136,6 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(367, 269);
             this.Controls.Add(this.endTimeLabel);
             this.Controls.Add(this.label4);

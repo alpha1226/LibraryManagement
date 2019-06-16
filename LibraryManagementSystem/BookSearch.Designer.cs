@@ -73,6 +73,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Silver;
             this.label16.Location = new System.Drawing.Point(350, 23);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(45, 12);
@@ -94,6 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(800, 534);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label16);
