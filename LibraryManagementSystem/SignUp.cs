@@ -48,12 +48,12 @@ namespace LibraryManagementSystem
             {
 
                 String logintime = System.DateTime.Now.ToString("yyyy년MM월dd일hh시mm분ss초");
-                MessageBox.Show(logintime);
+                //MessageBox.Show(logintime);
                 //칼럼에 추가하는 커리문 insertQuery
                 string insertQuery = "INSERT INTO membertbl(UserID,UserPW,UserName,UserBirthday,UserPhoneNumber,UserSubject,UserAddress,UserLoginDate) VALUES('"
                     + ID_textBox.Text + "' ,'" + PW_textBox.Text + "','" + Name_textBox.Text + "','" + Birth_textBox.Text + "','" + Phone_textBox.Text + "','" + job_textBox.Text + "','" + Address_textBox.Text + "','" + logintime + "')";
 
-                MessageBox.Show(insertQuery);//쿼리 확인
+                //MessageBox.Show(insertQuery);//쿼리 확인
 
                 connection.Open();
                 MySqlCommand command = new MySqlCommand(insertQuery, connection);
@@ -63,11 +63,12 @@ namespace LibraryManagementSystem
                     // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                     if (command.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("정상적으로 갔다");
+                        //MessageBox.Show("정상적으로 갔다");
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("비정상 이당");
+                        //MessageBox.Show("비정상 이당");
                     }
                 }
                 catch (Exception ex)
@@ -108,6 +109,7 @@ namespace LibraryManagementSystem
             if (IDFlag == 1)
             {
                 ID_textBox.Enabled = false;
+                MessageBox.Show("아이디 사용이 가능합니다");
             }
         }
 
@@ -122,8 +124,10 @@ namespace LibraryManagementSystem
             }
             if (PWFlag == 1)
             {
+                Console.WriteLine("PW일치");
                 PW_textBox.Enabled = false;
                 PWCK_textBox.Enabled = false;
+                MessageBox.Show("PW가 일치합니다");
             }
         }
 

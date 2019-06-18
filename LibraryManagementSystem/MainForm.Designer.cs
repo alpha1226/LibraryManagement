@@ -499,7 +499,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(251, 21);
             this.textBox1.TabIndex = 104;
-            this.textBox1.Text = "검색할 책 제목 입력란";
+            this.textBox1.Text = "검색할 책 제목";
             // 
             // buttonLogout
             // 

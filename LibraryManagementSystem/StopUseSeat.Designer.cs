@@ -158,6 +158,7 @@
             this.Controls.Add(this.label1);
             this.Name = "StopUseSeat";
             this.Text = "StopUseSeat";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StopUseSeat_FormClosed);
             this.Load += new System.EventHandler(this.StopUseSeat_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

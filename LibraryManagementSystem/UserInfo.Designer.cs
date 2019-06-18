@@ -52,17 +52,19 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button6
             // 
-            button6.Location = new System.Drawing.Point(393, 130);
+            button6.Location = new System.Drawing.Point(393, 172);
             button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(67, 65);
+            button6.Size = new System.Drawing.Size(90, 23);
             button6.TabIndex = 36;
             button6.Text = "비밀번호 확인";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // Address_textBox
             // 
@@ -107,6 +109,7 @@
             // 
             // PWCK_textBox
             // 
+            this.PWCK_textBox.Enabled = false;
             this.PWCK_textBox.Location = new System.Drawing.Point(177, 172);
             this.PWCK_textBox.Name = "PWCK_textBox";
             this.PWCK_textBox.PasswordChar = '*';
@@ -116,6 +119,7 @@
             // 
             // PW_textBox
             // 
+            this.PW_textBox.Enabled = false;
             this.PW_textBox.Location = new System.Drawing.Point(177, 130);
             this.PW_textBox.Name = "PW_textBox";
             this.PW_textBox.PasswordChar = '*';
@@ -125,6 +129,7 @@
             // 
             // ID_textBox
             // 
+            this.ID_textBox.Enabled = false;
             this.ID_textBox.Location = new System.Drawing.Point(177, 88);
             this.ID_textBox.Name = "ID_textBox";
             this.ID_textBox.Size = new System.Drawing.Size(195, 21);
@@ -219,6 +224,7 @@
             this.button2.TabIndex = 24;
             this.button2.Text = "뒤로가기";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -228,6 +234,7 @@
             this.button1.TabIndex = 23;
             this.button1.Text = "개인정보 수정";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -277,12 +284,23 @@
             this.label11.Text = "지난 대출 내역";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(393, 130);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 23);
+            this.button3.TabIndex = 47;
+            this.button3.Text = "비밀번호 변경";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
             // UserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(800, 534);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.listBox1);
@@ -339,5 +357,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button3;
     }
 }

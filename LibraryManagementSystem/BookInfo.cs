@@ -34,7 +34,7 @@ namespace LibraryManagementSystem
             Console.WriteLine(user);
             if (label11.Text.Equals("가능")) { label6.Text = "반납일"; label12.Text = DateTime.Now.ToString().Remove(11); } 
             else if (label11.Text.Equals("불가능")) { label6.Text = "대출 가능일"; label12.Text = DateTime.Now.AddDays(7).ToString().Remove(11); ; button1.Enabled = false; }
-            MessageBox.Show(user+"/"+bookIndex);
+            //MessageBox.Show(user+"/"+bookIndex);
 
             MySqlConnection BIconn =
             new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함
@@ -50,7 +50,7 @@ namespace LibraryManagementSystem
 
             if (reader.Read())
             {
-                MessageBox.Show(reader["BookUserID"].ToString());
+                //MessageBox.Show(reader["BookUserID"].ToString());
                 if (reader["bookUserID"].ToString().Equals(user))
                 {
                     button1.Text = "반납 신청";
@@ -83,9 +83,9 @@ namespace LibraryManagementSystem
             if (button1.Text.Equals("대출 신청"))
             {
                 string Query = "update booktbl set BookUserID='" + user + "' where BookIndex=" + bookIndex + ";";
-                string insertQuery = "insert into bookhistorytbl(BookIndex, UserID, startDate) values(" + bookIndex + ", '" + user + "', '" + DateTime.Now.AddDays(7).ToString().Remove(11) + "');";
+                string insertQuery = "insert into bookhistorytbl(BookIndex, UserID, startDate) values(" + bookIndex + ", '" + user + "', '" + DateTime.Now.ToString().Remove(11) + "');";
 
-                MessageBox.Show(Query);//쿼리 확인
+                //MessageBox.Show(Query);//쿼리 확인
 
                 MySqlConnection BIconn =
                 new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함
@@ -98,12 +98,12 @@ namespace LibraryManagementSystem
                     // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                     if (command.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("대출신청 완료");
+                        //MessageBox.Show("대출신청 완료");
                         this.Visible = false;
                     }
                     else
                     {
-                        MessageBox.Show("대출 실패");
+                        //MessageBox.Show("대출 실패");
                     }
                 }
                 catch (Exception ex)
@@ -119,12 +119,12 @@ namespace LibraryManagementSystem
                     // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                     if (insertcommand.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("history 저장 완료");
+                        //MessageBox.Show("history 저장 완료");
                         bs.researchbook();
                     }
                     else
                     {
-                        MessageBox.Show("history 저장 실패");
+                        //MessageBox.Show("history 저장 실패");
                     }
                 }
                 catch (Exception ex)
@@ -139,8 +139,8 @@ namespace LibraryManagementSystem
                 string Query = "update booktbl set BookUserID=null where BookIndex=" + bookIndex + ";";
                 string insertQuery = "UPDATE bookhistorytbl set endDate='" + DateTime.Now.ToString().Remove(11).Trim() + "' where UserID='"+user+"' AND BookIndex="+bookIndex+";";
 
-                MessageBox.Show(Query);//쿼리 확인
-                MessageBox.Show(insertQuery);
+                //MessageBox.Show(Query);//쿼리 확인
+                //MessageBox.Show(insertQuery);
 
                 MySqlConnection BIconn =
                 new MySqlConnection("Server=localhost;Database=lms;Uid=root;Pwd=1234;"); // 다른 컴퓨터에서도 해당 정보를 맞춰놔야함
@@ -153,12 +153,13 @@ namespace LibraryManagementSystem
                     // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                     if (command.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("반납 완료");
+                        //MessageBox.Show("반납 완료");
                         this.Visible = false;
+                        bs.researchbook();
                     }
                     else
                     {
-                        MessageBox.Show("반납 실패");
+                        //MessageBox.Show("반납 실패");
                     }
                 }
                 catch (Exception ex)
@@ -174,12 +175,12 @@ namespace LibraryManagementSystem
                     // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                     if (insertcommand.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("history enddate 저장 완료");
+                        //MessageBox.Show("history enddate 저장 완료");
                         bs.researchbook();
                     }
                     else
                     {
-                        MessageBox.Show("history enddate 저장 실패");
+                        //MessageBox.Show("history enddate 저장 실패");
                     }
                 }
                 catch (Exception ex)

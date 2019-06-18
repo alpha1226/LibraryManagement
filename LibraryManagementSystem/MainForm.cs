@@ -219,13 +219,17 @@ namespace LibraryManagementSystem
         private void SeatPassenger(object mysender)
         {
             int seatNum = int.Parse(mysender.ToString().Substring(35));
+            for(int i = 1; i <= 32; i++)
+            {
+                seatNumcheckerToFalse(i);
+            }
 
             if (UsingSeatLabel.Text.Equals("없음") == true)
             {
                 SeatChoice sh = new SeatChoice(this);
                 sh.Passvalue = userlabel.Text;
                 sh.UseSeatValue = seatNum.ToString();
-                MessageBox.Show(seatNum + "번 자리 사용");
+                //MessageBox.Show(seatNum + "번 자리 사용");
                 sh.Visible = true;
             }
             else if (UsingSeatLabel.Text.Equals(seatNum.ToString()))
@@ -235,7 +239,7 @@ namespace LibraryManagementSystem
                 sus.PassSeatNumber = seatNum.ToString();
                 sus.PassStartTime = startTime;
                 sus.PassSeatIndex = seatIndex;
-                MessageBox.Show(seatNum + "번 자리 사용 종료");
+                //MessageBox.Show(seatNum + "번 자리 사용 종료");
                 sus.Visible = true;
             }
             else

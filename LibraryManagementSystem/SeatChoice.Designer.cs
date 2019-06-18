@@ -134,6 +134,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SeatChoice";
             this.Text = "SeatChoice";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SeatChoice_FormClosed);
             this.Load += new System.EventHandler(this.SeatChoice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

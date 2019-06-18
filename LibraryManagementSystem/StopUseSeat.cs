@@ -82,7 +82,7 @@ namespace LibraryManagementSystem
             string insertQuery = "update seathistorytbl set endTime='" + DateTime.Now.ToString()+"' where UserID='"+NameLabel.Text.ToString()+"' AND seatNumber="
                 +seatNumlabel.Text.ToString()+" AND endTime IS NULL;";
 
-            MessageBox.Show(insertQuery);//쿼리 확인
+            //MessageBox.Show(insertQuery);//쿼리 확인
 
             SUSconnection.Open();
             MySqlCommand command = new MySqlCommand(insertQuery, SUSconnection);
@@ -92,12 +92,12 @@ namespace LibraryManagementSystem
                 // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("정상적으로 갔다");
+                    //MessageBox.Show("정상적으로 갔다");
                     mf.UsingSeatLabel.Text = "없음";
                     }
                 else
                 {
-                    MessageBox.Show("비정상 이당");
+                    //MessageBox.Show("비정상 이당");
                 }
             }
             catch (Exception ex)
@@ -107,7 +107,7 @@ namespace LibraryManagementSystem
 
             string updateQuery = "UPDATE seattbl SET UserID=null WHERE seatIndex=" + PassSeatNumber + ";";
 
-            MessageBox.Show(updateQuery);//쿼리 확인
+            //MessageBox.Show(updateQuery);//쿼리 확인
             MySqlCommand updatecommand = new MySqlCommand(updateQuery, SUSconnection);
 
             try//예외 처리
@@ -115,18 +115,19 @@ namespace LibraryManagementSystem
                 // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                 if (updatecommand.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("정상적으로 갔다");
+                    //MessageBox.Show("정상적으로 갔다");
                     mf.UsingSeatLabel.Text = "없음";
                     mf.MainFormSeatLoad();
                 }
                 else
                 {
-                    MessageBox.Show("비정상");
+                    //MessageBox.Show("비정상");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
             SUSconnection.Close();
@@ -136,8 +137,14 @@ namespace LibraryManagementSystem
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            int a = int.Parse(mf.UsingSeatLabel.Text.ToString());
+            mf.seatNumCheckerToTrue(a);
         }
 
-        
+        private void StopUseSeat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            int a = int.Parse(mf.UsingSeatLabel.Text.ToString());
+            mf.seatNumCheckerToTrue(a);
+        }
     }
 }

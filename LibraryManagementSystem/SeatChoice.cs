@@ -45,7 +45,7 @@ namespace LibraryManagementSystem
             string insertQuery = "INSERT INTO seathistorytbl(seatNumber,UserID,startTime)" +
                     "VALUES(" + UseSeatValue + ",'" + NameLabel.Text.ToString() + "','" + TimeLabel.Text.ToString() + "')";
 
-            MessageBox.Show(insertQuery);//쿼리 확인
+            //MessageBox.Show(insertQuery);//쿼리 확인
 
             sqlconn.Open();
             MySqlCommand command = new MySqlCommand(insertQuery, sqlconn);
@@ -55,22 +55,23 @@ namespace LibraryManagementSystem
                 // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("정상적으로 갔다");
+                    //MessageBox.Show("정상적으로 갔다");
                     mf.UsingSeatLabel.Text = UseSeatValue;
                 }
                 else
                 {
-                    MessageBox.Show("비정상");
+                    //MessageBox.Show("비정상");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
             string updateQuery = "UPDATE seattbl SET UserID='"+NameLabel.Text.ToString()+"' WHERE seatIndex="+UseSeatValue+";";
 
-            MessageBox.Show(updateQuery);//쿼리 확인
+            //MessageBox.Show(updateQuery);//쿼리 확인
             MySqlCommand updatecommand = new MySqlCommand(updateQuery, sqlconn);
 
             try//예외 처리
@@ -78,18 +79,19 @@ namespace LibraryManagementSystem
                 // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                 if (updatecommand.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("정상적으로 갔다");
+                    //MessageBox.Show("정상적으로 갔다");
                     mf.UsingSeatLabel.Text = UseSeatValue;
                     mf.MainFormSeatLoad();
                 }
                 else
                 {
-                    MessageBox.Show("비정상");
+                    //MessageBox.Show("비정상");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
 
@@ -106,7 +108,18 @@ namespace LibraryManagementSystem
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            for (int i = 1; i <= 32; i++)
+            {
+                mf.seatNumCheckerToTrue(i);
+            }
             this.Visible = false;
+        }
+
+        private void SeatChoice_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            for (int i = 1; i <= 32; i++) {
+                mf.seatNumCheckerToTrue(i);
+                    }
         }
     }
 }

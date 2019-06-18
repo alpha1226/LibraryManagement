@@ -83,11 +83,6 @@ namespace LibraryManagementSystem
                 string bookWriter = ivItem.SubItems[3].Text;
                 string bookPub = ivItem.SubItems[4].Text;
                 string deachul = ivItem.SubItems[5].Text;
-                //string deachul;
-                //if (ivItem.SubItems[6].Text.Equals(null)){ deachul = "불가능"; } else { deachul = "가능"; }
-                //MessageBox.Show(ivItem.SubItems[5].Text);
-
-                //MessageBox.Show(bookIndex);
 
                 Console.WriteLine(user);
 
@@ -98,8 +93,6 @@ namespace LibraryManagementSystem
                 bi.label9.Text = bookWriter;
                 bi.label10.Text = bookPub;
                 bi.label11.Text = deachul;
-                //bi.label11.Text = bookPrice;
-                //if (deachul.Equals("")) bi.label12.Text = "불가능"; else bi.label12.Text = "가능";
                 bi.Visible = true;
             }
         }

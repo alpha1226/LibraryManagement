@@ -40,7 +40,7 @@ namespace LibraryManagementSystem
             {
                 string Query = "update membertbl set UserLoginDate='" + DateTime.Now.ToString() + "' where UserID='" + textBox1.Text + "'&&UserPW='" + textBox2.Text + "';";
 
-                MessageBox.Show(Query);//쿼리 확인
+                //MessageBox.Show(Query);//쿼리 확인
 
                 LoginConn.Open();
                 MySqlCommand command = new MySqlCommand(Query, LoginConn);
@@ -51,7 +51,7 @@ namespace LibraryManagementSystem
                     // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                     if (command.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("로그인 완료");
+                        //MessageBox.Show("로그인 완료");
                         this.Visible = false;
                         MainForm form = new MainForm();
                         form.Passvalue = textBox1.Text;
@@ -61,12 +61,13 @@ namespace LibraryManagementSystem
                     }
                     else
                     {
-                        MessageBox.Show("로그인 실패");
+                        MessageBox.Show("입력한 정보가 일지하지 않습니다.\n다시한번 확인해주세요");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    //MessageBox.Show(ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
 
                 if (LoginConn.State == ConnectionState.Open)

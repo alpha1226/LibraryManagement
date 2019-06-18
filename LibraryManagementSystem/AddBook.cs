@@ -92,7 +92,7 @@ namespace LibraryManagementSystem
         {
             string bookinsertQuery = "insert into booktbl(BookGroup,BookName,BookWriter,BookPub,BookPrice) values ('"+group+"', '"+bookname+"', '"+writer+"', '"+pub+"', "+price+");";
 
-            MessageBox.Show(bookinsertQuery+"/"+num+"번 실행");//쿼리 확인
+            //MessageBox.Show(bookinsertQuery+"/"+num+"번 실행");//쿼리 확인
 
             connection.Open();
             for (int i = 0; i < num; i++)
@@ -104,11 +104,12 @@ namespace LibraryManagementSystem
                     // 만약에 내가처리한 Mysql에 정상적으로 들어갔다면 메세지를 보여주라는 뜻이다
                     if (command.ExecuteNonQuery() == 1)
                     {
-                        MessageBox.Show("정상적으로 갔다");
+                        //MessageBox.Show("정상적으로 갔다");
+                        MessageBox.Show("추가 완료");
                     }
                     else
                     {
-                        MessageBox.Show("비정상 이당");
+                        //MessageBox.Show("비정상 이당");
                     }
                 }
                 catch (Exception ex)
@@ -386,6 +387,251 @@ namespace LibraryManagementSystem
             } else
             {
                 checkBox1.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+        }
+
+        private void CheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true && !BookGroup2.Text.Equals("") && !BookName2.Text.Equals("") && !BookWriter2.Text.Equals("") && !BookPub2.Text.Equals("") && !BookPrice2.Text.Equals("") && (int.Parse(BookPrice2.Text) >= 0 && !BookPrice2.Text.Equals("")) && (int.Parse(BookNum2.Text) >= 1 && !BookNum2.Text.Equals("")))
+            {
+                BookGroup2.Enabled = false;
+                BookName2.Enabled = false;
+                BookWriter2.Enabled = false;
+                BookPub2.Enabled = false;
+                BookPrice2.Enabled = false;
+                BookNum2.Enabled = false;
+            }
+            else if (!checkBox2.Checked)
+            {
+                BookGroup2.Enabled = true;
+                BookName2.Enabled = true;
+                BookWriter2.Enabled = true;
+                BookPub2.Enabled = true;
+                BookPrice2.Enabled = true;
+                BookNum2.Enabled = true;
+            }
+            else
+            {
+                checkBox2.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+        }
+
+        private void CheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked == true && !BookGroup3.Text.Equals("") && !BookName3.Text.Equals("") && !BookWriter3.Text.Equals("") && !BookPub3.Text.Equals("") && !BookPrice3.Text.Equals("") && (int.Parse(BookPrice3.Text) >= 0 && !BookPrice3.Text.Equals("")) && (int.Parse(BookNum3.Text) >= 1 && !BookNum3.Text.Equals("")))
+            {
+                BookGroup3.Enabled = false;
+                BookName3.Enabled = false;
+                BookWriter3.Enabled = false;
+                BookPub3.Enabled = false;
+                BookPrice3.Enabled = false;
+                BookNum3.Enabled = false;
+            }
+            else if (!checkBox3.Checked)
+            {
+                BookGroup3.Enabled = true;
+                BookName3.Enabled = true;
+                BookWriter3.Enabled = true;
+                BookPub3.Enabled = true;
+                BookPrice3.Enabled = true;
+                BookNum3.Enabled = true;
+            }
+            else
+            {
+                checkBox3.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+        }
+
+        private void CheckBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox4.Checked == true && !BookGroup4.Text.Equals("") && !BookName4.Text.Equals("") && !BookWriter4.Text.Equals("") && !BookPub4.Text.Equals("") && !BookPrice4.Text.Equals("") && (int.Parse(BookPrice4.Text) >= 0 && !BookPrice4.Text.Equals("")) && (int.Parse(BookNum4.Text) >= 1 && !BookNum4.Text.Equals("")))
+            {
+                BookGroup4.Enabled = false;
+                BookName4.Enabled = false;
+                BookWriter4.Enabled = false;
+                BookPub4.Enabled = false;
+                BookPrice4.Enabled = false;
+                BookNum4.Enabled = false;
+            }
+            else if (!checkBox4.Checked)
+            {
+                BookGroup4.Enabled = true;
+                BookName4.Enabled = true;
+                BookWriter4.Enabled = true;
+                BookPub4.Enabled = true;
+                BookPrice4.Enabled = true;
+                BookNum4.Enabled = true;
+            }
+            else
+            {
+                checkBox4.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+
+        }
+
+        private void CheckBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked == true && !BookGroup5.Text.Equals("") && !BookName5.Text.Equals("") && !BookWriter5.Text.Equals("") && !BookPub5.Text.Equals("") && !BookPrice5.Text.Equals("") && (int.Parse(BookPrice5.Text) >= 0 && !BookPrice5.Text.Equals("")) && (int.Parse(BookNum5.Text) >= 1 && !BookNum5.Text.Equals("")))
+            {
+                BookGroup5.Enabled = false;
+                BookName5.Enabled = false;
+                BookWriter5.Enabled = false;
+                BookPub5.Enabled = false;
+                BookPrice5.Enabled = false;
+                BookNum5.Enabled = false;
+            }
+            else if (!checkBox5.Checked)
+            {
+                BookGroup5.Enabled = true;
+                BookName5.Enabled = true;
+                BookWriter5.Enabled = true;
+                BookPub5.Enabled = true;
+                BookPrice5.Enabled = true;
+                BookNum5.Enabled = true;
+            }
+            else
+            {
+                checkBox5.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+        }
+
+        private void CheckBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox6.Checked == true && !BookGroup6.Text.Equals("") && !BookName6.Text.Equals("") && !BookWriter6.Text.Equals("") && !BookPub6.Text.Equals("") && !BookPrice6.Text.Equals("") && (int.Parse(BookPrice6.Text) >= 0 && !BookPrice6.Text.Equals("")) && (int.Parse(BookNum6.Text) >= 1 && !BookNum6.Text.Equals("")))
+            {
+                BookGroup6.Enabled = false;
+                BookName6.Enabled = false;
+                BookWriter6.Enabled = false;
+                BookPub6.Enabled = false;
+                BookPrice6.Enabled = false;
+                BookNum6.Enabled = false;
+            }
+            else if (!checkBox6.Checked)
+            {
+                BookGroup6.Enabled = true;
+                BookName6.Enabled = true;
+                BookWriter6.Enabled = true;
+                BookPub6.Enabled = true;
+                BookPrice6.Enabled = true;
+                BookNum6.Enabled = true;
+            }
+            else
+            {
+                checkBox6.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+        }
+
+        private void CheckBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox7.Checked == true && !BookGroup7.Text.Equals("") && !BookName7.Text.Equals("") && !BookWriter7.Text.Equals("") && !BookPub7.Text.Equals("") && !BookPrice7.Text.Equals("") && (int.Parse(BookPrice7.Text) >= 0 && !BookPrice7.Text.Equals("")) && (int.Parse(BookNum7.Text) >= 1 && !BookNum7.Text.Equals("")))
+            {
+                BookGroup7.Enabled = false;
+                BookName7.Enabled = false;
+                BookWriter7.Enabled = false;
+                BookPub7.Enabled = false;
+                BookPrice7.Enabled = false;
+                BookNum7.Enabled = false;
+            }
+            else if (!checkBox7.Checked)
+            {
+                BookGroup7.Enabled = true;
+                BookName7.Enabled = true;
+                BookWriter7.Enabled = true;
+                BookPub7.Enabled = true;
+                BookPrice7.Enabled = true;
+                BookNum7.Enabled = true;
+            }
+            else
+            {
+                checkBox7.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+
+        }
+
+        private void CheckBox8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox8.Checked == true && !BookGroup8.Text.Equals("") && !BookName8.Text.Equals("") && !BookWriter8.Text.Equals("") && !BookPub8.Text.Equals("") && !BookPrice8.Text.Equals("") && (int.Parse(BookPrice8.Text) >= 0 && !BookPrice8.Text.Equals("")) && (int.Parse(BookNum8.Text) >= 1 && !BookNum8.Text.Equals("")))
+            {
+                BookGroup8.Enabled = false;
+                BookName8.Enabled = false;
+                BookWriter8.Enabled = false;
+                BookPub8.Enabled = false;
+                BookPrice8.Enabled = false;
+                BookNum8.Enabled = false;
+            }
+            else if (!checkBox8.Checked)
+            {
+                BookGroup8.Enabled = true;
+                BookName8.Enabled = true;
+                BookWriter8.Enabled = true;
+                BookPub8.Enabled = true;
+                BookPrice8.Enabled = true;
+                BookNum8.Enabled = true;
+            }
+            else
+            {
+                checkBox8.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+        }
+
+        private void CheckBox9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox9.Checked == true && !BookGroup9.Text.Equals("") && !BookName9.Text.Equals("") && !BookWriter9.Text.Equals("") && !BookPub9.Text.Equals("") && !BookPrice9.Text.Equals("") && (int.Parse(BookPrice9.Text) >= 0 && !BookPrice9.Text.Equals("")) && (int.Parse(BookNum9.Text) >= 1 && !BookNum9.Text.Equals("")))
+            {
+                BookGroup9.Enabled = false;
+                BookName9.Enabled = false;
+                BookWriter9.Enabled = false;
+                BookPub9.Enabled = false;
+                BookPrice9.Enabled = false;
+                BookNum9.Enabled = false;
+            }
+            else if (!checkBox9.Checked)
+            {
+                BookGroup9.Enabled = true;
+                BookName9.Enabled = true;
+                BookWriter9.Enabled = true;
+                BookPub9.Enabled = true;
+                BookPrice9.Enabled = true;
+                BookNum9.Enabled = true;
+            }
+            else
+            {
+                checkBox9.Checked = false;
+                MessageBox.Show("입력을 정확히 해주세요!");
+            }
+        }
+
+        private void CheckBox10_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox10.Checked == true && !BookGroup10.Text.Equals("") && !BookName10.Text.Equals("") && !BookWriter10.Text.Equals("") && !BookPub10.Text.Equals("") && !BookPrice10.Text.Equals("") && (int.Parse(BookPrice10.Text) >= 0 && !BookPrice10.Text.Equals("")) && (int.Parse(BookNum10.Text) >= 1 && !BookNum10.Text.Equals("")))
+            {
+                BookGroup10.Enabled = false;
+                BookName10.Enabled = false;
+                BookWriter10.Enabled = false;
+                BookPub10.Enabled = false;
+                BookPrice10.Enabled = false;
+                BookNum10.Enabled = false;
+            }
+            else if (!checkBox10.Checked)
+            {
+                BookGroup10.Enabled = true;
+                BookName10.Enabled = true;
+                BookWriter10.Enabled = true;
+                BookPub10.Enabled = true;
+                BookPrice10.Enabled = true;
+                BookNum10.Enabled = true;
+            }
+            else
+            {
+                checkBox10.Checked = false;
                 MessageBox.Show("입력을 정확히 해주세요!");
             }
         }
